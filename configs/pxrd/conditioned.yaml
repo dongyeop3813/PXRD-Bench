@@ -1,0 +1,19 @@
+pxrd_cond: true
+pxrd_max_peaks: 128
+pxrd_wavelength: 1.54184  # wavelength used to simulate stored peaks
+pxrd_enc_d_model: 256
+pxrd_enc_layers: 4
+pxrd_enc_heads: 8
+pxrd_enc_dropout: 0.0
+pxrd_fusion: sum  # sum|concat|mlp_sum|gated|cross_attn|in_context
+pxrd_in_context_mode: peak_tokens  # peak_tokens|global_repeat|multi_cls
+pxrd_context_repeats: 8  # used by global_repeat and multi_cls modes
+pxrd_context_learned_positions: false  # distinct learned slot embeddings for global_repeat
+pxrd_cond_dropout: 0.0  # per-sample CFG condition dropout
+init_checkpoint: null  # optional unconditional CSP warm start
+init_use_ema: true
+pxrd_low_angle_fraction: 0.25  # hybrid peak-selection share
+pxrd_encoder_arch: transformer  # transformer|xrdiff_mlp
+pxrd_enc_mlp_hidden_dim: 1101
+resume_checkpoint: null
+init_zero_pxrd_proj: true  # make step-0 match the prior

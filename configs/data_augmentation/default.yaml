@@ -1,0 +1,18 @@
+# Dataset-side train-only augmentation. Validation/reference splits never use it.
+augment_translate: true
+hierarchical_orbit_permutation: false
+pxrd_augment: false
+pxrd_aug_jitter_deg: 0.1
+pxrd_aug_int_scale_min: 0.8
+pxrd_aug_int_scale_max: 1.2
+pxrd_aug_width_scale_min: 0.7
+pxrd_aug_width_scale_max: 1.5
+pxrd_dense_profile_augment: false
+pxrd_profile_augment: null  # legacy alias
+pxrd_profile_augment_probability: 1.0
+pxrd_aug_zero_shift_deg: 0.15
+pxrd_aug_eta_min: 0.0
+pxrd_aug_eta_max: 0.5
+pxrd_aug_background_max: 0.2
+pxrd_aug_noise_std_max: 0.02
+pxrd_aug_drop_frac_max: 0.1

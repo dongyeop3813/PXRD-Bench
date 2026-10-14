@@ -1,0 +1,74 @@
+# resolved configs and checkpoints show where every value came from.
+cond:
+  element_set_cond: false
+  element_set_cond_dropout: 0.0
+
+data:
+  train_exclude_ids_path: null
+  overfit_subset_size: 0
+  overfit_subset_seed: 123
+  overfit_subset_indices: null
+  overfit_no_augment: false
+  atom_ordering: none
+  atom_ordering_symprec: 0.1
+  phase_reference_root: data/mp20
+
+model:
+  atom_positional_encoding: none
+  formulation: edm
+
+
+pxrd:
+  # peaks_128x4 retains its historical schema name; pxrd_max_peaks is flattened
+  # width: 256=Top64, 512=Top128 (legacy), 1696=all <=424 peaks on the 850-bin grid.
+  pxrd_encoder_position_encoding: none  # q-based features: none|rbf|fourier, 32 basis features
+  pxrd_encoder_fourier_frequencies: null  # 16 positive increasing frequencies; null preserves harmonics 1..16
+  pxrd_encoder_peak_features: full
+  pxrd_encoder_width_coordinate: two_theta  # two_theta|q|d; q/d use local Jacobian, no normalization
+  pxrd_encoder_pooling: cls  # cls|mean; masked peak mean, same CLS-containing backbone
+  pxrd_encoder_integer_two_theta: false  # truncate native 2theta after augmentation, before projection
+  pxrd_encoder_mask_padding: true  # exclude all-zero rows in flat peak transformers
+  pxrd_d_feature_mode: raw
+  pxrd_d_fourier_n_freqs: 16
+  pxrd_representation: peak_list
+  pxrd_peak_source: bragg
+  pxrd_peak_features: position_intensity
+  pxrd_peak_position: d
+  pxrd_peak_position_normalized: false
+  pxrd_peak_intensity_normalization: selected_topk
+  pxrd_peak_min_relative_intensity: 0.0
+  pxrd_peak_min_prominence: 0.0
+  pxrd_peak_prominence_normalization: none
+  pxrd_peak_width_unit: two_theta
+  pxrd_peak_width_normalization: none
+  pxrd_feature_source: auto
+  pxrd_peak_selection: strongest
+  pxrd_profile_step: 0.1
+  pxrd_caglioti_u: 0.1
+  pxrd_caglioti_v: 0.01
+  pxrd_caglioti_w: 0.1
+  pxrd_pseudo_voigt_eta: 0.1
+  pxrd_dense_n_bins: 8500
+  pxrd_two_theta_min: 5.0
+  pxrd_two_theta_max: 90.0
+  pxrd_augmentation: none
+  pxrd_xrdiff_gamma_shape: null
+  pxrd_xrdiff_gamma_scale: null
+  transfer_checkpoint: null
+  transfer_use_ema: true
+
+data_augmentation:
+  hierarchical_orbit_permutation: false
+
+optim:
+  grad_clip_mode: norm
+
+# Hydra initializes its run directory before the training function can claim
+# run.output_dir. Keep that bootstrap outside the durable training namespace;
+# the entrypoint copies Hydra metadata in only after the atomic claim succeeds.
+hydra:
+  run:
+    dir: outputs/.hydra/training/${hydra.job.name}/${now:%Y%m%d_%H%M%S_%f}
+  output_subdir: hydra
+  job:
+    chdir: false

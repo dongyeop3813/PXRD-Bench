@@ -1,0 +1,79 @@
+{
+  "schema_version": "pxrd_bench_two_phase_v1",
+  "seed": 777,
+  "source_root": "data/two_phase/mixtures",
+  "reference_root": "data/mp20",
+  "official_source": "/path/to/XDecomposer",
+  "official_commit": "53c33dc41df53d26c3fc011ec270e34acc0d01c7",
+  "release": {
+    "path": "/path/to/separation_latest.pt",
+    "sha256": "f33186a06ddff78319e9153d18e1fc11de68c4a1eeaa84b137eefa78bce9555b"
+  },
+  "mae": {
+    "path": "/path/to/mae_checkpoint_latest.pt",
+    "sha256": "1c66067583f652a95e10f92cdc85c81137c89ffe1e1a12fbd123f85b50fcfccc"
+  },
+  "structure_checkpoint": {
+    "path": "/path/to/shared_phase_step50000_ema.pt",
+    "sha256": "5c9b24529e2356c85115e18077e7e27635e6819f29467247d716ebc39b22bcd6"
+  },
+  "data": {
+    "val": {
+      "num_mixtures": 11199,
+      "files": [
+        {
+          "path": "data/two_phase/mixtures/val/samples.parquet",
+          "sha256": "e898557af4bed3d6becb5183c4448153f13a1c33bbcbfff2b05023f192e333d6"
+        },
+        {
+          "path": "data/two_phase/mixtures/val/metadata.json",
+          "sha256": "65ab3483e9073ff4238f91dca173017584a0a6d543e081295fb716c7bbd9e251"
+        }
+      ]
+    }
+  },
+  "cache_batch_size": 16,
+  "sampling": {
+    "num_candidates": 20,
+    "topk": [
+      1,
+      20
+    ],
+    "num_steps": 150,
+    "solver": "heun",
+    "rng_mode": "stateless_batch",
+    "weights": "ema"
+  },
+  "scoring": {
+    "matcher_profile": "strict",
+    "match_gate": "matcher_only",
+    "workers": 6
+  },
+  "runtime": {
+    "compile": false,
+    "compile_mode": "max-autotune",
+    "candidate_chunk_size": 1280
+  },
+  "output_root": "/absolute/path/to/ordered_predictions",
+  "test_used": false,
+  "implementation_smoke": false,
+  "decomposition_checkpoint": {
+    "path": "/path/to/ordered_xdecomposer.pt",
+    "sha256": "dcaeede6292c4ed9f90d4c125360d961f2d6f13db23afee30d725108b662a93e"
+  },
+  "training": {
+    "initial_checkpoint": {
+      "path": "/path/to/ordered_initial.pt",
+      "sha256": "7091ad0dd642ad83bcc183b56c26f97f501faf14775425f7c5084623809abce5"
+    },
+    "lr": 3e-06,
+    "min_lr": 1e-07,
+    "lr_patience": 2,
+    "epochs": 25,
+    "patience": 8,
+    "seed": 42,
+    "batch_size": 16,
+    "val_batch_size": 32,
+    "pearson_threshold": 0.5
+  }
+}

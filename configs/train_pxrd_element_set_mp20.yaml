@@ -1,0 +1,8 @@
+# @package _global_
+# MP-20 training recipe: dataset and training budget.
+defaults:
+  - train_pxrd_element_set
+  - override data: mp20
+  - _self_
+run:
+  max_steps: 800000

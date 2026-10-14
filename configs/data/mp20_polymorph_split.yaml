@@ -1,0 +1,8 @@
+defaults:
+  - mp20
+  - _self_
+
+data_root: data/mp20_polymorph_split
+dataset_name: mp20_polymorph_split
+structure_cache: null
+train_exclude_ids_path: data/exclude_ids/mp20_polymorph_split_rruff148_opxrd123_structure_match.json

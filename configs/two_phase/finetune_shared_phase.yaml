@@ -1,0 +1,213 @@
+# @package _global_
+# Ordered two-phase Bragglite checkpoint recipe.
+defaults:
+- /train_pxrd_element_set
+- override /model: bragglite_mixture_l
+- override /data: shared_phase
+- _self_
+run:
+  seed: 123
+  max_steps: 50000
+  deterministic: false
+  device: cuda
+  output_dir: ???
+  bf16: true
+  csp: false
+  stat_samples: 0
+  save_final_checkpoint: true
+  compile: true
+  compile_mode: max-autotune-no-cudagraphs
+  ddp_static_graph: true
+  ddp_find_unused_parameters: false
+data:
+  train_exclude_ids_path: null
+  overfit_subset_size: 0
+  overfit_subset_seed: 123
+  overfit_subset_indices: null
+  overfit_no_augment: false
+  atom_ordering: none
+  atom_ordering_symprec: 0.1
+  data_root: data/two_phase/shared_phase
+  dataset_name: shared_phase
+  dataset_class: shared_phase
+  real_pxrd_variant: all
+  real_pxrd_in_memory: false
+  structure_cache: null
+  metrics_data_root: null
+  metrics_dataset_name: null
+  nmax: 20
+  batch_size: 128
+  num_workers: 8
+  prefetch_factor: 4
+  phase_reference_root: data/mp20
+model:
+  atom_positional_encoding: sinusoidal
+  formulation: edm
+  type_encoding: subatomic_tokenizer_pca_16
+  use_distance_bias: true
+  use_edge_bias: true
+  edge_bias_n_freqs: 12
+  edge_bias_hidden_dim: 256
+  edge_bias_n_rbf: 32
+  edge_bias_rbf_max: 2.0
+  pbc_radius: 1
+  dist_slope_init: -1.0
+  use_noise_gate: true
+  gem_per_layer: true
+  coord_n_freqs: 32
+  coord_embed_mode: fourier
+  coord_head_mode: direct
+  coord_rff_dim: 256
+  coord_rff_sigma: 1.0
+  lattice_embed_mode: mlp
+  lattice_repr: ltri
+  lattice_rff_dim: 256
+  lattice_rff_sigma: 5.0
+  dropout: 0.0
+  attn_dropout: 0.0
+  d_model: 768
+  n_heads: 24
+  n_layers: 24
+pxrd:
+  pxrd_encoder_position_encoding: none
+  pxrd_encoder_fourier_frequencies: null
+  pxrd_encoder_peak_features: full
+  pxrd_encoder_width_coordinate: two_theta
+  pxrd_encoder_pooling: cls
+  pxrd_encoder_integer_two_theta: false
+  pxrd_encoder_mask_padding: true
+  pxrd_d_feature_mode: metric_fourier_q
+  pxrd_d_fourier_n_freqs: 16
+  pxrd_representation: peaks_128x4
+  pxrd_peak_source: dense
+  pxrd_peak_features: position_intensity
+  pxrd_peak_position: d
+  pxrd_peak_position_normalized: false
+  pxrd_peak_intensity_normalization: selected_topk
+  pxrd_peak_min_relative_intensity: 0.0
+  pxrd_peak_min_prominence: 0.0
+  pxrd_peak_prominence_normalization: none
+  pxrd_peak_width_unit: two_theta
+  pxrd_peak_width_normalization: none
+  pxrd_feature_source: auto
+  pxrd_peak_selection: strongest
+  pxrd_profile_step: 0.1
+  pxrd_caglioti_u: 0.1
+  pxrd_caglioti_v: 0.01
+  pxrd_caglioti_w: 0.1
+  pxrd_pseudo_voigt_eta: 0.1
+  pxrd_dense_n_bins: 8500
+  pxrd_two_theta_min: 5.0
+  pxrd_two_theta_max: 90.0
+  pxrd_augmentation: none
+  pxrd_xrdiff_gamma_shape: null
+  pxrd_xrdiff_gamma_scale: null
+  transfer_checkpoint: ???
+  transfer_use_ema: true
+  pxrd_cond: true
+  pxrd_max_peaks: 512
+  pxrd_wavelength: 1.54184
+  pxrd_enc_d_model: 256
+  pxrd_enc_layers: 4
+  pxrd_enc_heads: 8
+  pxrd_enc_dropout: 0.0
+  pxrd_fusion: in_context
+  pxrd_in_context_mode: global_repeat
+  pxrd_context_repeats: 8
+  pxrd_context_learned_positions: false
+  pxrd_cond_dropout: 0.0
+  init_checkpoint: null
+  init_use_ema: true
+  pxrd_low_angle_fraction: 0.25
+  pxrd_encoder_arch: transformer
+  pxrd_enc_mlp_hidden_dim: 1101
+  resume_checkpoint: null
+  init_zero_pxrd_proj: false
+cond:
+  element_set_cond: true
+  element_set_cond_dropout: 0.0
+optim:
+  grad_clip_mode: norm
+  optimizer: adamw
+  lr: 1.0e-05
+  lr_schedule: cosine
+  plateau_metric: val_loss
+  plateau_factor: 0.6
+  plateau_patience: 30
+  plateau_min_lr: 0.0001
+  resume_scheduler_state: true
+  weight_decay: 0.0
+  betas:
+  - 0.9
+  - 0.999
+  eps: 1.0e-08
+  lr_warmup_steps: 500
+  fused_optimizer: true
+  foreach_grad_clip: true
+  grad_clip_norm: 1.0
+  grad_accum_steps: 1
+edm:
+  edm_P_mean: -1.2
+  edm_P_std: 1.2
+  sigma_data_type: 0.3
+  sigma_data_coord: 0.3
+  sigma_data_lattice: 0.3
+  sigma_min: 0.002
+  sigma_max: 80.0
+  rho: 7.0
+  S_churn: 60.0
+  S_min: 0.0
+  S_max: 999.0
+  S_noise: 1.003
+  aa_frac_max_scale: 0.0
+  aa_rho_coords: 10.0
+  aa_rho_lattice: 10.0
+  aa_rho_types: 4
+loss:
+  loss_weights:
+  - 64.0
+  - 150.0
+  - 5.0
+  coord_loss_mode: frac_mse
+ckpt:
+  ema_decay: 0.9999
+  ema_use_for_sampling: false
+  ckpt_every: 5000
+  ckpt_latest_only: false
+  best_ckpt: true
+  best_ckpt_selector: auto
+monitor:
+  log_every: 50
+  val_every: 1000
+  val_batches: 20
+  monitor_every: 5000
+  monitor_selection_split: val
+  monitor_split: val
+  monitor_num_samples: 128
+  monitor_num_candidates: 20
+  monitor_topk:
+  - 1
+  - 20
+  monitor_chunk_size: 128
+  monitor_ids_path: null
+  monitor_seed: 777
+  monitor_resample_targets: false
+  monitor_mode: ema
+data_augmentation:
+  hierarchical_orbit_permutation: false
+  augment_translate: true
+  pxrd_augment: false
+  pxrd_aug_jitter_deg: 0.2
+  pxrd_aug_int_scale_min: 0.6
+  pxrd_aug_int_scale_max: 1.4
+  pxrd_aug_width_scale_min: 0.4
+  pxrd_aug_width_scale_max: 2.2
+  pxrd_dense_profile_augment: false
+  pxrd_profile_augment: false
+  pxrd_profile_augment_probability: 1.0
+  pxrd_aug_zero_shift_deg: 0.3
+  pxrd_aug_eta_min: 0.0
+  pxrd_aug_eta_max: 0.8
+  pxrd_aug_background_max: 0.35
+  pxrd_aug_noise_std_max: 0.04
+  pxrd_aug_drop_frac_max: 0.2

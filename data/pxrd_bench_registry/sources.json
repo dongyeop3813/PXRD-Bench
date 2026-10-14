@@ -1,0 +1,337 @@
+{
+  "processing_versions": {
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "pymatgen": "2024.11.13",
+    "spglib": "2.7.0",
+    "torch": "2.8.0+cu128"
+  },
+  "sources": {
+    "materials_project": {
+      "source_release": "2026.04.13",
+      "license_url": "https://docs.materialsproject.org/policies/terms",
+      "attribution": "Materials Project; retain per-record origin-specific terms, including GNoME where applicable",
+      "origin_audit": "not yet classified; do not assert GNoME absence",
+      "resources": {}
+    },
+    "aflow": {
+      "source_release": "AFLUX snapshot 2026-08-16T13:05:41.242337+00:00",
+      "license_url": "https://www.aflowlib.org/documentation/",
+      "attribution": "AFLOW Consortium; official academic noncommercial access conditions apply",
+      "retrieval": "selected exact-AUID official API; original content fingerprint mandatory",
+      "resources": {}
+    },
+    "oqmd": {
+      "source_release": "v1.5 (2021-10)",
+      "license_url": "https://oqmd.org/api/",
+      "attribution": "Open Quantum Materials Database (OQMD), CC BY 4.0; calculated output structures, locally processed",
+      "database": "qmdb_migrate",
+      "table_sha256": "bcab8096f1b814a9ba8049d7f7310698c15746a3f6090a156d6d9748aa5d4915",
+      "resources": {
+        "v1.5": {
+          "filename": "qmdb__v1_5__102021.sql.gz",
+          "sha256": "69708c556127a39791a00e5b41730b7572cf30e79f49c40ec09bd08cb8a74406",
+          "url": "https://oqmd.org/download/",
+          "link_filename": "qmdb__v1_5__102021.sql.gz"
+        }
+      }
+    },
+    "alexandria": {
+      "source_release": "PBE 3D 2025.07.02",
+      "license_url": "https://alexandria.icams.rub.de/",
+      "attribution": "Alexandria database, PBE 3D 2025.07.02, CC BY 4.0; local processing changes",
+      "resources": {
+        "alexandria_00000.json.bz2": {
+          "filename": "alexandria_00000.json.bz2",
+          "sha256": "8eb6e3b46967492e65d17c78b94222aea34b47643eb089d80a36ac7c69a8976e",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00000.json.bz2"
+        },
+        "alexandria_00001.json.bz2": {
+          "filename": "alexandria_00001.json.bz2",
+          "sha256": "42e016dc29da52d95a8c61c9a73c329dab17cb10d1e9d677abe63872d9c3911a",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00001.json.bz2"
+        },
+        "alexandria_00002.json.bz2": {
+          "filename": "alexandria_00002.json.bz2",
+          "sha256": "ad5b97fd7e9e7f10884d64a4a9fdf7adc6a7340f3d86fdc353461bfeaf742c55",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00002.json.bz2"
+        },
+        "alexandria_00003.json.bz2": {
+          "filename": "alexandria_00003.json.bz2",
+          "sha256": "02ac7f27ee47e4381fb7d77d64315ef3a8c48444c9e8d81bb1623ced96b64a10",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00003.json.bz2"
+        },
+        "alexandria_00004.json.bz2": {
+          "filename": "alexandria_00004.json.bz2",
+          "sha256": "0012f1e0ccba1f405b5f22e990843283447a4e75d77582ce6d3552edf8febc88",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00004.json.bz2"
+        },
+        "alexandria_00005.json.bz2": {
+          "filename": "alexandria_00005.json.bz2",
+          "sha256": "908104fc5e7045504b3c4b1468635395fa0b075345731955887fa9fe1191b652",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00005.json.bz2"
+        },
+        "alexandria_00006.json.bz2": {
+          "filename": "alexandria_00006.json.bz2",
+          "sha256": "d361a578eff9010a66d576c6bad57268adf2d53b80b1145e0625471419ddb389",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00006.json.bz2"
+        },
+        "alexandria_00007.json.bz2": {
+          "filename": "alexandria_00007.json.bz2",
+          "sha256": "dd54e29564fd162ad45171be912fbbadfae2255c2f6eee260f8c23896f57c0f9",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00007.json.bz2"
+        },
+        "alexandria_00008.json.bz2": {
+          "filename": "alexandria_00008.json.bz2",
+          "sha256": "669b0e20e307ce97ddfc8eb158e30e249285f32a9ad773d8ceed8f526004e35c",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00008.json.bz2"
+        },
+        "alexandria_00009.json.bz2": {
+          "filename": "alexandria_00009.json.bz2",
+          "sha256": "9ab832158156fbacac71d7319720d1a58dc590b59070d08dd2f348194c4eb3e9",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00009.json.bz2"
+        },
+        "alexandria_00010.json.bz2": {
+          "filename": "alexandria_00010.json.bz2",
+          "sha256": "ef53d442ed69d8ae8dbd8f0dd1ebe4dd395cb7eb2c19eb2f9718c255ab506454",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00010.json.bz2"
+        },
+        "alexandria_00011.json.bz2": {
+          "filename": "alexandria_00011.json.bz2",
+          "sha256": "8c6c82d5255279a00d8095ec94b5ba37d06fb9f387ade4b47732f824ca022947",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00011.json.bz2"
+        },
+        "alexandria_00012.json.bz2": {
+          "filename": "alexandria_00012.json.bz2",
+          "sha256": "4104e8e6d9b79696dcf839a497b8a472bc9d0bca242295dfb12b0e8e844d2e00",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00012.json.bz2"
+        },
+        "alexandria_00013.json.bz2": {
+          "filename": "alexandria_00013.json.bz2",
+          "sha256": "017d8ba3a5b9351d595e1c283132c166ce637ba0b503d0280dc46c4191c9f54e",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00013.json.bz2"
+        },
+        "alexandria_00014.json.bz2": {
+          "filename": "alexandria_00014.json.bz2",
+          "sha256": "41b28500b7b7b431b9381556c6cfecec21ac8f2dba1f6a2e240e97babf6ac9a2",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00014.json.bz2"
+        },
+        "alexandria_00015.json.bz2": {
+          "filename": "alexandria_00015.json.bz2",
+          "sha256": "bd3d673a96f5df7926cecb153a3e4ec6da9e47395db537d4003843fb002b486e",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00015.json.bz2"
+        },
+        "alexandria_00016.json.bz2": {
+          "filename": "alexandria_00016.json.bz2",
+          "sha256": "db2d699c46dfdaddd21dbd1e5f33f0341c9fc9396a952fb246b4b0e4e96e3e33",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00016.json.bz2"
+        },
+        "alexandria_00017.json.bz2": {
+          "filename": "alexandria_00017.json.bz2",
+          "sha256": "718a66c12ae199a109c63f3367748f5308f3e93282944a2bb557e2bb5fb417b4",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00017.json.bz2"
+        },
+        "alexandria_00018.json.bz2": {
+          "filename": "alexandria_00018.json.bz2",
+          "sha256": "2798a22305e652d8f749a535b4c9865b1e2df2ffb2611660f692b6cce453101e",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00018.json.bz2"
+        },
+        "alexandria_00019.json.bz2": {
+          "filename": "alexandria_00019.json.bz2",
+          "sha256": "3eb1917c34aa932ce2a439a87c36f071fff3e69a916e852be76e76047b04fb4e",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00019.json.bz2"
+        },
+        "alexandria_00020.json.bz2": {
+          "filename": "alexandria_00020.json.bz2",
+          "sha256": "79613a88e584e3b693f80dbf19d9c06c969291c2de1e529ac0217037ce6dff1e",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00020.json.bz2"
+        },
+        "alexandria_00021.json.bz2": {
+          "filename": "alexandria_00021.json.bz2",
+          "sha256": "c2e2162118d00308729653f9c1715abbfac82f87e893fd98f606b6cf22e39242",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00021.json.bz2"
+        },
+        "alexandria_00022.json.bz2": {
+          "filename": "alexandria_00022.json.bz2",
+          "sha256": "abb11a1356372da430789419d9726eb749b7ecbb2ebbf31e18f9af6d4bbec5d2",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00022.json.bz2"
+        },
+        "alexandria_00023.json.bz2": {
+          "filename": "alexandria_00023.json.bz2",
+          "sha256": "d626f659ceaaa2706c7a78a24ceddde46efaf10f8605acdd411d098725916a24",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00023.json.bz2"
+        },
+        "alexandria_00024.json.bz2": {
+          "filename": "alexandria_00024.json.bz2",
+          "sha256": "be7ef563449159d90ffaf33c53987663d0eb07e23c80b2f8a9c2b8e36600a013",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00024.json.bz2"
+        },
+        "alexandria_00025.json.bz2": {
+          "filename": "alexandria_00025.json.bz2",
+          "sha256": "ed16b53bccba083818fb731a3ca0d3db8cee10ed37c6f8d1c5bf6995e6df34f6",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00025.json.bz2"
+        },
+        "alexandria_00026.json.bz2": {
+          "filename": "alexandria_00026.json.bz2",
+          "sha256": "eed12a58c4b1e6d989aed06f39763da4882fc05dc83033b53b80e5214733b78f",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00026.json.bz2"
+        },
+        "alexandria_00027.json.bz2": {
+          "filename": "alexandria_00027.json.bz2",
+          "sha256": "4d2997e8ad3486d9d6f448999e9937d7570b431f049444f24872d9a352984c23",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00027.json.bz2"
+        },
+        "alexandria_00028.json.bz2": {
+          "filename": "alexandria_00028.json.bz2",
+          "sha256": "88aa942b34caccb6adf9a4c24db06c714071826800167ffe24f0fb1e8a7f77dc",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00028.json.bz2"
+        },
+        "alexandria_00029.json.bz2": {
+          "filename": "alexandria_00029.json.bz2",
+          "sha256": "1b555c603bea1acf5d18cba53275b568564ae07b9aafdbdacbb1d2d6b12999b0",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00029.json.bz2"
+        },
+        "alexandria_00030.json.bz2": {
+          "filename": "alexandria_00030.json.bz2",
+          "sha256": "1a099807227bdb1bad2122b630e98af0c911b4a2f27f8a22cedb9750444fcfd6",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00030.json.bz2"
+        },
+        "alexandria_00031.json.bz2": {
+          "filename": "alexandria_00031.json.bz2",
+          "sha256": "f589da8919380a98ee2deff2e3afafefa97219b8cc5fa4b2bb596108298ac97e",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00031.json.bz2"
+        },
+        "alexandria_00032.json.bz2": {
+          "filename": "alexandria_00032.json.bz2",
+          "sha256": "03d063527568d886592ca9bc2a460d66d7876c75e3bf218fa11c43ab0b648068",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00032.json.bz2"
+        },
+        "alexandria_00033.json.bz2": {
+          "filename": "alexandria_00033.json.bz2",
+          "sha256": "edac37f290b058534af51826cab62220cdd94ceabb32ef2ecc58f1fe89feb35e",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00033.json.bz2"
+        },
+        "alexandria_00034.json.bz2": {
+          "filename": "alexandria_00034.json.bz2",
+          "sha256": "3a10ad6b27f7cd911745dfca2e58be250715af1b8409195dc53b56841f12cfac",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00034.json.bz2"
+        },
+        "alexandria_00035.json.bz2": {
+          "filename": "alexandria_00035.json.bz2",
+          "sha256": "afab3d289f667cc90b0de3a9a791829236c241d27f9e68a581ee4653e70aa025",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00035.json.bz2"
+        },
+        "alexandria_00036.json.bz2": {
+          "filename": "alexandria_00036.json.bz2",
+          "sha256": "9162a1dceb9a8361b5b76556831f1fe3d279a8ff2b5bb75f44cc3112f48fb2a4",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00036.json.bz2"
+        },
+        "alexandria_00037.json.bz2": {
+          "filename": "alexandria_00037.json.bz2",
+          "sha256": "38fffb6e0fd971fbd14c19cfe5cc0a1847c3fd57c156ff645ca99770e490c304",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00037.json.bz2"
+        },
+        "alexandria_00038.json.bz2": {
+          "filename": "alexandria_00038.json.bz2",
+          "sha256": "0b1869756731810b659189273f46c7e94892a25b695552061f196ea634465cb3",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00038.json.bz2"
+        },
+        "alexandria_00039.json.bz2": {
+          "filename": "alexandria_00039.json.bz2",
+          "sha256": "8f9d3bcb7695f26c1143552fb73f8496d152bdd3f80b4d7db4e1c282b6bdab93",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00039.json.bz2"
+        },
+        "alexandria_00040.json.bz2": {
+          "filename": "alexandria_00040.json.bz2",
+          "sha256": "ddb8e660fad939b5340d5203d450527bec7c7bfe5b7f08680226af9809e2fa40",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00040.json.bz2"
+        },
+        "alexandria_00041.json.bz2": {
+          "filename": "alexandria_00041.json.bz2",
+          "sha256": "0cf797190496c91bfe8152cf35d83aaf1871936444cead530a617d75d198fc72",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00041.json.bz2"
+        },
+        "alexandria_00042.json.bz2": {
+          "filename": "alexandria_00042.json.bz2",
+          "sha256": "c94e42a6133c0a0f0d46ab7a1de8ce23bd974572e99e86d493948297c9556c54",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00042.json.bz2"
+        },
+        "alexandria_00043.json.bz2": {
+          "filename": "alexandria_00043.json.bz2",
+          "sha256": "391eabdc8262ef1eb0ab82d6bcfc9441e767ca424127a5262b4a2467024df709",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00043.json.bz2"
+        },
+        "alexandria_00044.json.bz2": {
+          "filename": "alexandria_00044.json.bz2",
+          "sha256": "2cadccf60fade307ebc8adef71ce3127481eef8efc12606bd644456704e4a72a",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00044.json.bz2"
+        },
+        "alexandria_00045.json.bz2": {
+          "filename": "alexandria_00045.json.bz2",
+          "sha256": "183d5b7e40d089be45f099661ab6f1c45b303b273df31ba9087d412f187126fd",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00045.json.bz2"
+        },
+        "alexandria_00046.json.bz2": {
+          "filename": "alexandria_00046.json.bz2",
+          "sha256": "f3141a7f9f31344590220d2542900cf2c85483fe8682693a2f0c8fd86822ce4d",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00046.json.bz2"
+        },
+        "alexandria_00047.json.bz2": {
+          "filename": "alexandria_00047.json.bz2",
+          "sha256": "19eb593838b53c4726c8928f51d74b8a8a98d1d28acbb689325de77433045820",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00047.json.bz2"
+        },
+        "alexandria_00048.json.bz2": {
+          "filename": "alexandria_00048.json.bz2",
+          "sha256": "3627f0ea5609442a417e0b99dfdc0003a0acdba992f8ef15c98b9b395204be6b",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00048.json.bz2"
+        },
+        "alexandria_00049.json.bz2": {
+          "filename": "alexandria_00049.json.bz2",
+          "sha256": "d9d23b6835f767147b318a903c597d7d80a27db280533d0d0fdd075c2198ed8b",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00049.json.bz2"
+        },
+        "alexandria_00050.json.bz2": {
+          "filename": "alexandria_00050.json.bz2",
+          "sha256": "d880dacb69a4b89a0c86f53a86b90b99978734daec77b2ba61ddbdcfac10ecf2",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00050.json.bz2"
+        },
+        "alexandria_00051.json.bz2": {
+          "filename": "alexandria_00051.json.bz2",
+          "sha256": "3edf333cc16aabfee08e5183483ee20d72ab10da42ccdb32a335c68ee2851ba3",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00051.json.bz2"
+        },
+        "alexandria_00052.json.bz2": {
+          "filename": "alexandria_00052.json.bz2",
+          "sha256": "0a3c37988e96dab5ad6e5c903146972bb445a60038aa3afef75642f4e6abd888",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00052.json.bz2"
+        },
+        "alexandria_00053.json.bz2": {
+          "filename": "alexandria_00053.json.bz2",
+          "sha256": "e210b5ad336c8c3a0acaea5336ac4574774d0ee9b918a667fc5179155990ac6b",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00053.json.bz2"
+        },
+        "alexandria_00054.json.bz2": {
+          "filename": "alexandria_00054.json.bz2",
+          "sha256": "542cfbf80ffcbc8c7ba17d40c98680c277c134be2836adfcbc8b3b1e78e95bc3",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00054.json.bz2"
+        },
+        "alexandria_00055.json.bz2": {
+          "filename": "alexandria_00055.json.bz2",
+          "sha256": "9dc18de87ca07ee4c4c0adae741b73a6b2340e6882514b8a4437ada08e95dd4b",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00055.json.bz2"
+        },
+        "alexandria_00056.json.bz2": {
+          "filename": "alexandria_00056.json.bz2",
+          "sha256": "2a850bdc485b8db4d8b45ab2a8081752dc48e0e663a1a9a3fefc265fa2b79163",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00056.json.bz2"
+        },
+        "alexandria_00057.json.bz2": {
+          "filename": "alexandria_00057.json.bz2",
+          "sha256": "de56135e0de8eb728e90bca38aef92d0c8ac499673bbceb3636e12bc1bbf2f83",
+          "url": "https://alexandria.icams.rub.de/data/pbe/2025.07.02/alexandria_00057.json.bz2"
+        }
+      }
+    }
+  }
+}

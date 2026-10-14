@@ -1,0 +1,92 @@
+checkpoint:
+  path: null
+  weights: ema
+
+data:
+  name: ${data.dataset_name}
+  root: ${data.data_root}
+  split: ${data.default_eval_split}
+  allow_nmax_extrapolation: false  # explicit evaluation beyond checkpoint training atom count
+  real_pxrd_variant: all
+  real_pxrd_peak_preprocessing: official  # official|historical_unfiltered
+  experimental_background_subtraction: true
+  diagnostic_pxrd_features_path: null  # post-hoc only; frozen parent and target IDs retained
+  diagnostic_pxrd_features_sha256: null
+  structure_cache: null
+  simulated_profile_augmentation_seed: null  # fixed Strong view; simulated MP20/RRUFF
+  reference_root: data/mp20
+  peak_cache_root: null
+
+sampling:
+  backend: edm
+  num_targets: 0
+  target_indices_path: null  # optional JSON manifest with exact validation indices
+  num_candidates: 20  # default post-training candidate budget
+  seed: 777
+  num_steps: null
+  solver: null  # null inherits checkpoint
+  chunk_size: 256
+  batch_candidates: true
+  candidate_chunk_size: 1280
+  rng_mode: stateless_batch  # generator_list restores the historical candidate stream
+  sigma_min: null
+  sigma_max: null
+  rho: null
+  S_churn: null
+  S_min: null
+  S_max: null
+  S_noise: null
+  aa_frac_max_scale: null
+  aa_rho_types: null
+  aa_rho_coords: null
+  aa_rho_lattice: null
+  sigma_min_types: null
+  sigma_max_types: null
+  rho_types: null
+  sigma_min_coords: null
+  sigma_max_coords: null
+  rho_coords: null
+  sigma_min_lattice: null
+  sigma_max_lattice: null
+  rho_lattice: null
+
+scoring:
+  topk: [1, 20]  # default Match@1/20 reporting
+  metre_topk: []  # e.g. [1] compares each reference with all rank-1 predictions of the same reduced composition
+  matcher_profile: strict
+  match_gate: matcher_only
+  matcher_timeout_seconds: 0.0  # 0 disables per-candidate StructureMatcher timeout
+  pdd_k: 100
+  match_only: true  # report match_rate@k only; false enables RMSD/PDD/lattice/formula diagnostics
+
+runtime:
+  device: cuda
+  torch_num_threads: null  # pin for runtime-fitted PCA atom-type encodings
+  legacy_runtime_pca: false
+  bf16: true
+  workers: 7
+  compile: true
+  compile_mode: max-autotune
+  warmup_compile: false
+  fast_sampler: true
+  profile_gpu: true
+  profile_phases: false
+  gpu_poll_interval_seconds: 0.25
+  num_shards: 1
+  shard_index: 0
+  cache_shard_size: 512
+  parallel_worker: false
+  parallel_devices: []
+  parallel_timeout_seconds: 0.0
+
+run:
+  mode: run
+  output_dir: ???
+  force: false
+
+hydra:
+  job:
+    chdir: false
+  output_subdir: hydra
+  run:
+    dir: ${run.output_dir}

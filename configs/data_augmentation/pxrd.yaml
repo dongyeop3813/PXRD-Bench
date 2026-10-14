@@ -1,0 +1,17 @@
+augment_translate: true
+hierarchical_orbit_permutation: false
+pxrd_augment: true
+pxrd_aug_jitter_deg: 0.2
+pxrd_aug_int_scale_min: 0.6
+pxrd_aug_int_scale_max: 1.4
+pxrd_aug_width_scale_min: 0.4
+pxrd_aug_width_scale_max: 2.2
+pxrd_dense_profile_augment: true
+pxrd_profile_augment: null
+pxrd_profile_augment_probability: 1.0
+pxrd_aug_zero_shift_deg: 0.3
+pxrd_aug_eta_min: 0.0
+pxrd_aug_eta_max: 0.8
+pxrd_aug_background_max: 0.35
+pxrd_aug_noise_std_max: 0.04
+pxrd_aug_drop_frac_max: 0.2

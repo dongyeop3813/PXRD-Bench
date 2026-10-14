@@ -1,0 +1,3 @@
+# Sampling group — sampler algorithm and generation strategy only.
+sample_num_steps: 150
+atom_count_strategy: empirical  # fixed|empirical

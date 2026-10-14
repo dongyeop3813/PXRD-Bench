@@ -1,0 +1,17 @@
+# Optim group — optimizer, learning-rate schedule, and gradient clipping only.
+optimizer: adamw              # adam|adamw; intentionally open to run overrides
+lr: 0.0001
+lr_schedule: constant        # cosine | constant | plateau
+plateau_metric: val_loss     # val_loss | csp_match_rate@K
+plateau_factor: 0.6
+plateau_patience: 30
+plateau_min_lr: 0.0001
+resume_scheduler_state: true
+weight_decay: 0.0
+betas: [0.9, 0.999]
+eps: 1.0e-8
+lr_warmup_steps: 500
+fused_optimizer: true
+foreach_grad_clip: true
+grad_clip_norm: 1.0
+grad_accum_steps: 1         # microbatches per optimizer update

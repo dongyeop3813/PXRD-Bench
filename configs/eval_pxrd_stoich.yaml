@@ -1,0 +1,4 @@
+defaults:
+  - data: pxrd_bench
+  - evaluation@_global_: pxrd
+  - _self_

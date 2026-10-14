@@ -1,0 +1,10 @@
+defaults:
+  - mp20
+  - _self_
+dataset_name: shared_phase
+dataset_class: shared_phase
+data_root: data/two_phase/shared_phase
+phase_reference_root: data/mp20
+train_exclude_ids_path: null
+atom_ordering: none
+batch_size: 128

@@ -1,0 +1,90 @@
+defaults:
+- training_defaults
+- pxrd: transformer_global8_v1
+- data: pxrd_bench
+- model: bragglite_s
+- optim: default
+- edm: default
+- sampling: default
+- monitor: pxrd
+- logging: default
+- data_augmentation: pxrd
+- _self_
+run:
+  seed: 123
+  max_steps: 4000000
+  deterministic: false
+  device: cuda
+  output_dir: ???
+  bf16: true
+  csp: false
+  stat_samples: 0
+  save_final_checkpoint: true
+  compile: false
+  compile_mode: max-autotune
+  ddp_static_graph: true
+  ddp_find_unused_parameters: false
+data:
+  structure_cache: ${data.mcflow_structure_cache}
+  atom_ordering: mcflow
+  atom_ordering_symprec: 0.1
+model:
+  atom_positional_encoding: sinusoidal
+optim:
+  lr: 0.0001
+  lr_schedule: cosine
+  lr_warmup_steps: 500
+edm:
+  edm_P_mean: -1.2
+  edm_P_std: 1.5
+  sigma_data_type: 0.3
+  sigma_data_coord: 0.3
+  sigma_data_lattice: 0.3
+  sigma_min: 0.001
+  sigma_max: 40.0
+  rho: 7.0
+  S_churn: 60.0
+  S_min: 0.0
+  S_max: 999.0
+  S_noise: 1.003
+  aa_frac_max_scale: 0.0
+  aa_rho_coords: 4.0
+  aa_rho_lattice: 4.0
+  aa_rho_types: 4.0
+sampling:
+  sample_num_steps: 150
+  solver: heun
+  sigma_min_lattice: 0.002
+loss:
+  loss_weights:
+  - 64.0
+  - 150.0
+  - 5.0
+  coord_loss_mode: frac_mse
+ckpt:
+  ema_decay: 0.9999
+  ema_use_for_sampling: true
+  ckpt_every: 10000
+  ckpt_latest_only: true
+  best_ckpt: true
+  best_ckpt_selector: auto
+monitor:
+  log_every: 50
+  val_every: 2000
+  val_batches: 10
+  monitor_every: 10000
+  monitor_selection_split: val
+  monitor_split: val
+  monitor_num_samples: 512
+  monitor_num_candidates: 1
+  monitor_topk:
+  - 1
+  monitor_chunk_size: 256
+  monitor_seed: 777
+  monitor_mode: ema
+data_augmentation:
+  augment_translate: true
+  hierarchical_orbit_permutation: true
+  pxrd_augment: true
+cond:
+  element_set_cond: true

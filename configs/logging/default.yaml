@@ -1,0 +1,4 @@
+# Optional Weights & Biases logging; local JSONL metrics are always written.
+wandb_project: Bragglite
+wandb_name: null  # W&B chooses a name when enabled.
+no_wandb: true

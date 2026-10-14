@@ -1,0 +1,55 @@
+defaults:
+- training_defaults
+- pxrd: transformer_global8_v1
+- data: pxrd_bench
+- model: bragglite_s
+- optim: default
+- edm: default
+- sampling: default
+- monitor: pxrd
+- logging: default
+- data_augmentation: pxrd
+- _self_
+run:
+  seed: 123
+  max_steps: 4000000
+  deterministic: false
+  device: cuda
+  output_dir: ???
+  bf16: true
+  csp: true
+  stat_samples: 0
+  compile: false
+  compile_mode: max-autotune
+  save_final_checkpoint: true
+loss:
+  loss_weights:
+  - 0.0
+  - 50.0
+  - 5.0
+  coord_loss_mode: frac_mse
+ckpt:
+  ema_decay: 0.9999
+  ema_use_for_sampling: true
+  ckpt_every: 10000
+  ckpt_latest_only: true
+  ckpt_keep_from_step: 0
+  best_ckpt: true
+  best_ckpt_selector: auto
+optim:
+  lr: 0.0002
+  lr_schedule: constant
+  lr_warmup_steps: 1000
+monitor:
+  monitor_every: 10000
+  monitor_num_samples: 512
+  monitor_num_candidates: 1
+  monitor_topk:
+  - 1
+  monitor_mode: ema
+data_augmentation:
+  pxrd_augment: true
+edm:
+  aa_rho_types: 0.0
+  aa_rho_coords: 10.0
+  aa_rho_lattice: 10.0

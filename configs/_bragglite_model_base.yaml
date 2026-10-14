@@ -1,0 +1,26 @@
+# @package model
+
+type_encoding: subatomic_tokenizer_pca_16
+use_distance_bias: true
+use_edge_bias: true
+edge_bias_n_freqs: 12
+edge_bias_hidden_dim: 256
+edge_bias_n_rbf: 32
+edge_bias_rbf_max: 2.0
+pbc_radius: 1
+dist_slope_init: -1.0
+use_noise_gate: true
+gem_per_layer: false
+coord_n_freqs: 32
+coord_embed_mode: fourier
+coord_head_mode: direct
+coord_rff_dim: 256
+coord_rff_sigma: 1.0
+lattice_embed_mode: mlp
+lattice_repr: ltri
+lattice_rff_dim: 256
+lattice_rff_sigma: 5.0
+dropout: 0.0
+attn_dropout: 0.0
+formulation: edm
+atom_positional_encoding: none

@@ -1,0 +1,12 @@
+# Scientific processing versions from the research uv.lock.
+numpy==1.26.4
+scipy==1.15.3
+pandas==2.3.3
+pyarrow==22.0.0
+pymatgen==2024.11.13
+spglib==2.7.0
+torch==2.8.0
+lmdb==1.8.1
+joblib==1.5.3
+# Decode the checksum-pinned local math-library package; no system installation.
+zstandard==0.23.0
