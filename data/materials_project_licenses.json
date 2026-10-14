@@ -1,0 +1,13 @@
+{
+  "source": "materials_project",
+  "source_release": "2026.04.13",
+  "records": 77493,
+  "provider_license_counts": {
+    "BY-C": 77493
+  },
+  "license_field": "builder_meta.license",
+  "source_catalog_sha256": "eb6d305f14cd8351bf37dbe116ec0e29ebe85affb63782e1ba07a12170b4f20f",
+  "ordered_registry_source_ids_sha256": "c80fe213f3543912bad2190ddbcbdd3636178870fcde1a478275747d9a1dee2b",
+  "provider_license_reference": "https://github.com/materialsproject/emmet/blob/main/emmet-core/emmet/core/vasp/material.py",
+  "scope": "Downloaded native metadata for every registered MP source ID; source catalog and membership unchanged."
+}

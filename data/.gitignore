@@ -5,3 +5,18 @@
 !/requirements-reconstruction.txt
 !/pxrd_bench_registry/
 !/pxrd_bench_registry/**
+
+# Public input documentation and frozen paper manifests.
+!/mp20.md
+!/materials_project_licenses.json
+!/exclude_ids/
+/exclude_ids/*
+!/exclude_ids/mp20_rruff148_opxrd123_structure_match.json
+!/exclude_ids/mp20_polymorph_split_rruff148_opxrd123_structure_match.json
+!/evaluation/
+/evaluation/*
+!/evaluation/splits/
+/evaluation/splits/*
+!/evaluation/splits/rruff_148_validation.json
+!/evaluation/splits/rruff_148_test.json
+!/evaluation/splits/mp20_polymorph_monitor512.json

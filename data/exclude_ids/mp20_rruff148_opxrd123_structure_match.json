@@ -1,0 +1,1429 @@
+{
+  "schema_version": 2,
+  "policy": "exclude train/reference rows matching any full RRUFF-148 or opXRD-123 structure under the recorded StructureMatcher contract",
+  "dataset": "mp20",
+  "targets": [
+    {
+      "dataset": "author-provided RRUFF-148",
+      "manifest_sha256": "0c5135cf7085d31a129506ee72fae3f7520333da360107137569ad9ef4aa9100",
+      "test_csv_sha256": "7de92c5ca5099d7c8a3bc33eb225d152ababf5021c9ca4b018ab26c3eb82d8ac",
+      "records": 148
+    },
+    {
+      "dataset": "opXRD_experimental_v1_123subset",
+      "archive": "opXRD_experimental_v1_123subset.zip",
+      "archive_sha256": "291ca46db9eb4079f02995ca19fa8082f4c740309730d96faefb2f0d879b9e63",
+      "manifest_sha256": "7d2d638093e6cfbf0a2e709feb445676f13449f175c47f716a63b79f9bd38de7",
+      "membership_sha256": "e1f41f102777ed206f2399f6850a4507c73984d4fa5491bdd3ed313fed5064b6",
+      "records": 123
+    }
+  ],
+  "matcher": {
+    "class": "pymatgen.analysis.structure_matcher.StructureMatcher",
+    "pymatgen_version": "2024.11.13",
+    "ltol": 0.3,
+    "stol": 0.5,
+    "angle_tol": 10.0,
+    "primitive_cell": true,
+    "scale": true,
+    "attempt_supercell": false,
+    "allow_subset": false,
+    "comparator": "SpeciesComparator"
+  },
+  "source": {
+    "kind": "tokens",
+    "path": "data/mp20/processed/mp20_tokens_train.pt",
+    "sha256": "a152f6d9202b9b66dd4abee438ba7824c8edca90a7cf4072ee1ae394be71e4ff",
+    "train_rows": 27136,
+    "train_ids_unique": true
+  },
+  "composition_prefilter_candidate_count": 319,
+  "excluded_train_id_count": 133,
+  "excluded_train_ids_sha256": "ab5fbd21b2d8d3da85dbfc754e6205109e6d9feed80c017a31faacfb359c00d0",
+  "excluded_train_ids": [
+    "mp-1050",
+    "mp-10695",
+    "mp-10851",
+    "mp-1091375",
+    "mp-1095284",
+    "mp-1095520",
+    "mp-1095694",
+    "mp-1102900",
+    "mp-1103190",
+    "mp-1103747",
+    "mp-1104369",
+    "mp-1105697",
+    "mp-1179149",
+    "mp-1188793",
+    "mp-1189633",
+    "mp-1215731",
+    "mp-1219457",
+    "mp-1238899",
+    "mp-1243",
+    "mp-1276496",
+    "mp-1281224",
+    "mp-1288892",
+    "mp-129",
+    "mp-14152",
+    "mp-1582",
+    "mp-1597",
+    "mp-169",
+    "mp-1783",
+    "mp-18759",
+    "mp-18814",
+    "mp-18969",
+    "mp-19",
+    "mp-19006",
+    "mp-19147",
+    "mp-19276",
+    "mp-19313",
+    "mp-19407",
+    "mp-19421",
+    "mp-19426",
+    "mp-19814",
+    "mp-19893",
+    "mp-20311",
+    "mp-20589",
+    "mp-2065",
+    "mp-20974",
+    "mp-21276",
+    "mp-2133",
+    "mp-2184",
+    "mp-224",
+    "mp-226",
+    "mp-23152",
+    "mp-23657",
+    "mp-23764",
+    "mp-2657",
+    "mp-2741",
+    "mp-27912",
+    "mp-2795",
+    "mp-2809",
+    "mp-2858",
+    "mp-2908",
+    "mp-30247",
+    "mp-3054",
+    "mp-31770",
+    "mp-33009",
+    "mp-3345",
+    "mp-3416",
+    "mp-351",
+    "mp-3822",
+    "mp-3922",
+    "mp-3953",
+    "mp-4004",
+    "mp-4019",
+    "mp-4385",
+    "mp-4406",
+    "mp-4431",
+    "mp-452",
+    "mp-4531",
+    "mp-4626",
+    "mp-4770",
+    "mp-4820",
+    "mp-5014",
+    "mp-504",
+    "mp-510408",
+    "mp-510536",
+    "mp-5348",
+    "mp-550172",
+    "mp-5504",
+    "mp-554089",
+    "mp-557391",
+    "mp-558016",
+    "mp-561511",
+    "mp-567313",
+    "mp-568286",
+    "mp-570459",
+    "mp-590",
+    "mp-6124",
+    "mp-625074",
+    "mp-625152",
+    "mp-626143",
+    "mp-626644",
+    "mp-634",
+    "mp-6340",
+    "mp-634326",
+    "mp-641",
+    "mp-643",
+    "mp-643364",
+    "mp-643378",
+    "mp-643814",
+    "mp-6440",
+    "mp-644506",
+    "mp-6459",
+    "mp-6524",
+    "mp-6568",
+    "mp-682",
+    "mp-6922",
+    "mp-6930",
+    "mp-699136",
+    "mp-7000",
+    "mp-7029",
+    "mp-703260",
+    "mp-7035",
+    "mp-715550",
+    "mp-715553",
+    "mp-81",
+    "mp-810",
+    "mp-820",
+    "mp-825",
+    "mp-84",
+    "mp-856",
+    "mp-937760",
+    "mp-9812",
+    "mvc-11645",
+    "mvc-6611"
+  ],
+  "matched_train_id_count_by_benchmark": {
+    "rruff_148": 114,
+    "opxrd_123": 25
+  },
+  "matches": [
+    {
+      "train_id": "mp-1050",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Polydymite"
+      ]
+    },
+    {
+      "train_id": "mp-10695",
+      "benchmarks": [
+        "opxrd_123",
+        "rruff_148"
+      ],
+      "target_ids": [
+        "opxrd_123:HKUST/HKUST-A/pattern_0",
+        "rruff_148:Sphalerite"
+      ]
+    },
+    {
+      "train_id": "mp-10851",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Quartz"
+      ]
+    },
+    {
+      "train_id": "mp-1091375",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Anglesite"
+      ]
+    },
+    {
+      "train_id": "mp-1095284",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_191",
+        "opxrd_123:CNRS/pattern_669"
+      ]
+    },
+    {
+      "train_id": "mp-1095520",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_43"
+      ]
+    },
+    {
+      "train_id": "mp-1095694",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Acanthite"
+      ]
+    },
+    {
+      "train_id": "mp-1102900",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Acanthite"
+      ]
+    },
+    {
+      "train_id": "mp-1103190",
+      "benchmarks": [
+        "opxrd_123",
+        "rruff_148"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_101",
+        "rruff_148:Scheelite"
+      ]
+    },
+    {
+      "train_id": "mp-1103747",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_940"
+      ]
+    },
+    {
+      "train_id": "mp-1104369",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_693"
+      ]
+    },
+    {
+      "train_id": "mp-1105697",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Cerussite"
+      ]
+    },
+    {
+      "train_id": "mp-1179149",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_732"
+      ]
+    },
+    {
+      "train_id": "mp-1188793",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Nahcolite"
+      ]
+    },
+    {
+      "train_id": "mp-1189633",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Stibnite"
+      ]
+    },
+    {
+      "train_id": "mp-1215731",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Hemimorphite"
+      ]
+    },
+    {
+      "train_id": "mp-1219457",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Stibarsen"
+      ]
+    },
+    {
+      "train_id": "mp-1238899",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Manganosite"
+      ]
+    },
+    {
+      "train_id": "mp-1243",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_506"
+      ]
+    },
+    {
+      "train_id": "mp-1276496",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_693"
+      ]
+    },
+    {
+      "train_id": "mp-1281224",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Manganosite"
+      ]
+    },
+    {
+      "train_id": "mp-1288892",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_693"
+      ]
+    },
+    {
+      "train_id": "mp-129",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Molybdenum"
+      ]
+    },
+    {
+      "train_id": "mp-14152",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_912"
+      ]
+    },
+    {
+      "train_id": "mp-1582",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_113",
+        "opxrd_123:CNRS/pattern_197",
+        "opxrd_123:CNRS/pattern_265",
+        "opxrd_123:CNRS/pattern_267",
+        "opxrd_123:CNRS/pattern_282",
+        "opxrd_123:CNRS/pattern_291",
+        "opxrd_123:CNRS/pattern_299",
+        "opxrd_123:CNRS/pattern_403",
+        "opxrd_123:CNRS/pattern_422",
+        "opxrd_123:CNRS/pattern_434",
+        "opxrd_123:CNRS/pattern_453",
+        "opxrd_123:CNRS/pattern_461",
+        "opxrd_123:CNRS/pattern_555",
+        "opxrd_123:CNRS/pattern_65",
+        "opxrd_123:CNRS/pattern_695",
+        "opxrd_123:CNRS/pattern_696",
+        "opxrd_123:CNRS/pattern_718",
+        "opxrd_123:CNRS/pattern_735",
+        "opxrd_123:CNRS/pattern_741",
+        "opxrd_123:CNRS/pattern_842",
+        "opxrd_123:CNRS/pattern_853",
+        "opxrd_123:CNRS/pattern_936",
+        "opxrd_123:CNRS/pattern_945",
+        "opxrd_123:CNRS/pattern_946",
+        "opxrd_123:CNRS/pattern_965"
+      ]
+    },
+    {
+      "train_id": "mp-1597",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Uraninite"
+      ]
+    },
+    {
+      "train_id": "mp-169",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Graphite"
+      ]
+    },
+    {
+      "train_id": "mp-1783",
+      "benchmarks": [
+        "opxrd_123",
+        "rruff_148"
+      ],
+      "target_ids": [
+        "opxrd_123:HKUST/HKUST-A/pattern_20",
+        "rruff_148:Alabandite"
+      ]
+    },
+    {
+      "train_id": "mp-18759",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Hausmannite"
+      ]
+    },
+    {
+      "train_id": "mp-18814",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Rhodochrosite"
+      ]
+    },
+    {
+      "train_id": "mp-18969",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Siderite"
+      ]
+    },
+    {
+      "train_id": "mp-19",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Tellurium"
+      ]
+    },
+    {
+      "train_id": "mp-19006",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Manganosite"
+      ]
+    },
+    {
+      "train_id": "mp-19147",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Gaspeite"
+      ]
+    },
+    {
+      "train_id": "mp-19276",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_835"
+      ]
+    },
+    {
+      "train_id": "mp-19313",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Franklinite"
+      ]
+    },
+    {
+      "train_id": "mp-19407",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Hubnerite"
+      ]
+    },
+    {
+      "train_id": "mp-19421",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Ferberite"
+      ]
+    },
+    {
+      "train_id": "mp-19426",
+      "benchmarks": [
+        "opxrd_123",
+        "rruff_148"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_101",
+        "rruff_148:Scheelite"
+      ]
+    },
+    {
+      "train_id": "mp-19814",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Rammelsbergite"
+      ]
+    },
+    {
+      "train_id": "mp-19893",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Cerussite"
+      ]
+    },
+    {
+      "train_id": "mp-20311",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_465"
+      ]
+    },
+    {
+      "train_id": "mp-20589",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Molybdite"
+      ]
+    },
+    {
+      "train_id": "mp-2065",
+      "benchmarks": [
+        "opxrd_123",
+        "rruff_148"
+      ],
+      "target_ids": [
+        "opxrd_123:HKUST/HKUST-A/pattern_20",
+        "rruff_148:Alabandite"
+      ]
+    },
+    {
+      "train_id": "mp-20974",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Paramontroseite"
+      ]
+    },
+    {
+      "train_id": "mp-21276",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Galena"
+      ]
+    },
+    {
+      "train_id": "mp-2133",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Zincite"
+      ]
+    },
+    {
+      "train_id": "mp-2184",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Arsenolite"
+      ]
+    },
+    {
+      "train_id": "mp-224",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Tungstenite"
+      ]
+    },
+    {
+      "train_id": "mp-226",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Pyrite"
+      ]
+    },
+    {
+      "train_id": "mp-23152",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Bismuth"
+      ]
+    },
+    {
+      "train_id": "mp-23657",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Sulphohalite"
+      ]
+    },
+    {
+      "train_id": "mp-23764",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Lizardite"
+      ]
+    },
+    {
+      "train_id": "mp-2657",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Rutile"
+      ]
+    },
+    {
+      "train_id": "mp-2741",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Fluorite"
+      ]
+    },
+    {
+      "train_id": "mp-27912",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:HKUST/HKUST-A/pattern_3"
+      ]
+    },
+    {
+      "train_id": "mp-2795",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_540"
+      ]
+    },
+    {
+      "train_id": "mp-2809",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Stibnite"
+      ]
+    },
+    {
+      "train_id": "mp-2858",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Baddeleyite"
+      ]
+    },
+    {
+      "train_id": "mp-2908",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Gahnite"
+      ]
+    },
+    {
+      "train_id": "mp-30247",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Brucite"
+      ]
+    },
+    {
+      "train_id": "mp-3054",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Zabuyelite"
+      ]
+    },
+    {
+      "train_id": "mp-31770",
+      "benchmarks": [
+        "opxrd_123",
+        "rruff_148"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_1048",
+        "rruff_148:Magnetite"
+      ]
+    },
+    {
+      "train_id": "mp-33009",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Manganite",
+        "rruff_148:Pyrolusite"
+      ]
+    },
+    {
+      "train_id": "mp-3345",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Enargite"
+      ]
+    },
+    {
+      "train_id": "mp-3416",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Cryolite"
+      ]
+    },
+    {
+      "train_id": "mp-351",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_855"
+      ]
+    },
+    {
+      "train_id": "mp-3822",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Strontianite"
+      ]
+    },
+    {
+      "train_id": "mp-3922",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Miargyrite"
+      ]
+    },
+    {
+      "train_id": "mp-3953",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Calcite"
+      ]
+    },
+    {
+      "train_id": "mp-4004",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Stephanite"
+      ]
+    },
+    {
+      "train_id": "mp-4019",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Perovskite"
+      ]
+    },
+    {
+      "train_id": "mp-4385",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Otavite"
+      ]
+    },
+    {
+      "train_id": "mp-4406",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Anhydrite"
+      ]
+    },
+    {
+      "train_id": "mp-4431",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Proustite"
+      ]
+    },
+    {
+      "train_id": "mp-452",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Skutterudite"
+      ]
+    },
+    {
+      "train_id": "mp-4531",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Nitratine"
+      ]
+    },
+    {
+      "train_id": "mp-4626",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Aragonite"
+      ]
+    },
+    {
+      "train_id": "mp-4770",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Thenardite"
+      ]
+    },
+    {
+      "train_id": "mp-4820",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Zircon"
+      ]
+    },
+    {
+      "train_id": "mp-5014",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Stromeyerite"
+      ]
+    },
+    {
+      "train_id": "mp-504",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Covellite"
+      ]
+    },
+    {
+      "train_id": "mp-510408",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Manganite",
+        "rruff_148:Pyrolusite"
+      ]
+    },
+    {
+      "train_id": "mp-510536",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Tugarinovite"
+      ]
+    },
+    {
+      "train_id": "mp-5348",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Magnesite"
+      ]
+    },
+    {
+      "train_id": "mp-550172",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Cassiterite"
+      ]
+    },
+    {
+      "train_id": "mp-5504",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Witherite"
+      ]
+    },
+    {
+      "train_id": "mp-554089",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Cristobalite"
+      ]
+    },
+    {
+      "train_id": "mp-557391",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Shortite"
+      ]
+    },
+    {
+      "train_id": "mp-558016",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Tilasite"
+      ]
+    },
+    {
+      "train_id": "mp-561511",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Arsenopyrite"
+      ]
+    },
+    {
+      "train_id": "mp-567313",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Tellurium"
+      ]
+    },
+    {
+      "train_id": "mp-568286",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Graphite"
+      ]
+    },
+    {
+      "train_id": "mp-570459",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Tellurium"
+      ]
+    },
+    {
+      "train_id": "mp-590",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Nickeline"
+      ]
+    },
+    {
+      "train_id": "mp-6124",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Jadeite"
+      ]
+    },
+    {
+      "train_id": "mp-625074",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:HKUST/HKUST-A/pattern_3"
+      ]
+    },
+    {
+      "train_id": "mp-625152",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Diaspore"
+      ]
+    },
+    {
+      "train_id": "mp-626143",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Brucite"
+      ]
+    },
+    {
+      "train_id": "mp-626644",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Portlandite"
+      ]
+    },
+    {
+      "train_id": "mp-634",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Cinnabar"
+      ]
+    },
+    {
+      "train_id": "mp-6340",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Spodumene"
+      ]
+    },
+    {
+      "train_id": "mp-634326",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:CNRS/pattern_950"
+      ]
+    },
+    {
+      "train_id": "mp-641",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Orpiment"
+      ]
+    },
+    {
+      "train_id": "mp-643",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Thorianite"
+      ]
+    },
+    {
+      "train_id": "mp-643364",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Paralaurionite"
+      ]
+    },
+    {
+      "train_id": "mp-643378",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Diaboleite"
+      ]
+    },
+    {
+      "train_id": "mp-643814",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Hemimorphite"
+      ]
+    },
+    {
+      "train_id": "mp-6440",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Titanite"
+      ]
+    },
+    {
+      "train_id": "mp-644506",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Dawsonite"
+      ]
+    },
+    {
+      "train_id": "mp-6459",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Dolomite"
+      ]
+    },
+    {
+      "train_id": "mp-6524",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Huntite"
+      ]
+    },
+    {
+      "train_id": "mp-6568",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Barytocalcite"
+      ]
+    },
+    {
+      "train_id": "mp-682",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Villiaumite"
+      ]
+    },
+    {
+      "train_id": "mp-6922",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Quartz"
+      ]
+    },
+    {
+      "train_id": "mp-6930",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Quartz"
+      ]
+    },
+    {
+      "train_id": "mp-699136",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Dawsonite"
+      ]
+    },
+    {
+      "train_id": "mp-7000",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Quartz"
+      ]
+    },
+    {
+      "train_id": "mp-7029",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Cristobalite"
+      ]
+    },
+    {
+      "train_id": "mp-703260",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Stolzite"
+      ]
+    },
+    {
+      "train_id": "mp-7035",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Tilasite"
+      ]
+    },
+    {
+      "train_id": "mp-715550",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Tugarinovite"
+      ]
+    },
+    {
+      "train_id": "mp-715553",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Paramontroseite"
+      ]
+    },
+    {
+      "train_id": "mp-81",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Gold"
+      ]
+    },
+    {
+      "train_id": "mp-810",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Breithauptite"
+      ]
+    },
+    {
+      "train_id": "mp-820",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Tiemannite"
+      ]
+    },
+    {
+      "train_id": "mp-825",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:HKUST/HKUST-A/pattern_11"
+      ]
+    },
+    {
+      "train_id": "mp-84",
+      "benchmarks": [
+        "opxrd_123"
+      ],
+      "target_ids": [
+        "opxrd_123:HKUST/HKUST-A/pattern_19"
+      ]
+    },
+    {
+      "train_id": "mp-856",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Cassiterite"
+      ]
+    },
+    {
+      "train_id": "mp-937760",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Graphite"
+      ]
+    },
+    {
+      "train_id": "mp-9812",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Smithsonite"
+      ]
+    },
+    {
+      "train_id": "mvc-11645",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Franklinite"
+      ]
+    },
+    {
+      "train_id": "mvc-6611",
+      "benchmarks": [
+        "rruff_148"
+      ],
+      "target_ids": [
+        "rruff_148:Cassiterite"
+      ]
+    }
+  ],
+  "verification": {
+    "all_and_only_structure_matches_listed": true,
+    "composition_prefilter_used_only_to_skip_impossible_matches": true,
+    "excluded_ids_unique": true,
+    "post_exclusion_structure_overlap_count": {
+      "rruff_148": 0,
+      "opxrd_123": 0
+    }
+  }
+}

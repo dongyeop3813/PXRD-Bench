@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "dataset": "rruff_148_author_exact",
+  "source_manifest_sha256": "0c5135cf7085d31a129506ee72fae3f7520333da360107137569ad9ef4aa9100",
+  "split": "test",
+  "logical_split": "validation",
+  "split_seed": 20260831,
+  "num_targets": 48,
+  "target_indices": [0, 4, 6, 7, 13, 14, 15, 16, 21, 26, 33, 35, 37, 39, 41, 42, 44, 47, 51, 54, 55, 65, 69, 70, 73, 75, 76, 77, 84, 89, 91, 99, 106, 108, 113, 116, 118, 119, 120, 121, 122, 127, 128, 130, 135, 139, 143, 146],
+  "target_indices_sha256": "686927855e98534f56770a33a8ef5169608d88c1b11504b50a28c6f2e1a276b3"
+}
