@@ -24,12 +24,17 @@ On Linux x86-64, download and prepare the dataset with:
 
 ```bash
 bash data/setup_pxrd_bench.sh
+uv sync --locked
 ```
+
+The setup script installs pinned reconstruction dependencies; `uv sync --locked`
+restores the training environment afterward.
 
 The dataset is written to `data/pxrd_bench`. To verify an existing installation:
 
 ```bash
 bash data/setup_pxrd_bench.sh --verify-only
+uv sync --locked
 ```
 
 See [data/README.md](data/README.md) for credentials, storage requirements,

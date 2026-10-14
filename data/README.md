@@ -52,8 +52,12 @@ bash data/setup_pxrd_bench.sh --workers 16
 bash data/setup_pxrd_bench.sh --no-bootstrap
 ```
 
-This prepares the CPU dataset reconstruction environment. Model training needs
-the additional dependencies in `pyproject.toml` and its own runtime validation.
+This prepares the dataset reconstruction environment. After setup or verification,
+restore the locked model-training environment from the repository root:
+
+```bash
+uv sync --locked
+```
 An existing incompatible Python `.venv` is not deleted: move it aside and rerun.
 Scientific processing is implemented under `src/pxrd_bench_setup/`; runtime
 loaders live under `src/data/`. Only registered AFLOW/MP records are fetched;
